@@ -1,4 +1,4 @@
-FROM python:3.5-alpine
+FROM python:3.5
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -11,6 +11,4 @@ COPY . /usr/src/app
 
 EXPOSE 8080
 
-ENTRYPOINT ["python"]
-
-CMD ["run.py"]
+CMD python run.py
