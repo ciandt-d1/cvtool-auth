@@ -8,7 +8,7 @@ from oauth2client import crypt
 from kingpick_auth.config import JWT_PRIVATE_KEY
 from kingpick_auth.models.auth_info_response import AuthInfoResponse
 
-logger = logging.getLog(__name__)
+logger = logging.getLogger(__name__)
 
 
 def token():
