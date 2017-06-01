@@ -26,7 +26,6 @@ def token():
         aud='cli',
         iss='cvtool'
     )
-    logger.debug(JWT_PRIVATE_KEY)
     signer = crypt.Signer.from_string(JWT_PRIVATE_KEY)
     jwt = crypt.make_signed_jwt(signer, payload, key_id='root')
 
