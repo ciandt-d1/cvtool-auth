@@ -1,11 +1,14 @@
 import base64
 import json
+import logging
 
 import connexion
 from oauth2client import crypt
 
 from kingpick_auth.config import JWT_PRIVATE_KEY
 from kingpick_auth.models.auth_info_response import AuthInfoResponse
+
+logger = logging.getLog(__name__)
 
 
 def token():
@@ -23,7 +26,7 @@ def token():
         aud='cli',
         iss='cvtool'
     )
-
+    logger.debug(JWT_PRIVATE_KEY)
     signer = crypt.Signer.from_string(JWT_PRIVATE_KEY)
     jwt = crypt.make_signed_jwt(signer, payload, key_id='root')
 
@@ -54,5 +57,3 @@ def _auth_info():
 def tokeninfo():
     """Auth info with Google signed JWT."""
     return AuthInfoResponse.from_dict(_auth_info())
-
-
