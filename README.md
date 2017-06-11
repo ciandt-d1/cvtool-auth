@@ -46,4 +46,10 @@ docker build -t kingpick_auth .
 
 # starting up a container
 docker run -p 8080:8080 kingpick_auth
+
+
+echo '{ "id":"123", "email":"user@domain.com" }' | base64
+
+curl -v -H "X-Endpoint-API-UserInfo:${user_info}" "localhost:8080/v1/auth/token"
+
 ```

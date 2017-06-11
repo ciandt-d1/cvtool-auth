@@ -1,8 +1,6 @@
-connexion == 1.0.129
+connexion == 1.1.10
 python_dateutil == 2.6.0
 setuptools >= 21.0.0
 oauth2client>=4.0.0
-python-jose
-pyopenssl
 google-cloud-logging
-
+google-api-python-client
