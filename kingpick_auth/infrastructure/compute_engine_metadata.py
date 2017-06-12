@@ -22,5 +22,5 @@ except ValueError:  # pragma: NO COVER
 def get_project_id():
     base_url = urlparse.urljoin(_METADATA_ROOT, 'project/project-id')
     response = requests.get(base_url, headers=_METADATA_HEADERS, timeout=_METADATA_DEFAULT_TIMEOUT, allow_redirects=False)
-    return response.content
+    return response.text
 
