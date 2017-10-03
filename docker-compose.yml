@@ -3,13 +3,14 @@ version: "2"
 services:
   auth-api:
     build: .
-    image: 'gcr.io/${GCP_PROJECT_ID}/cvtool/auth-api:local'
+    image: 'deeone/aquila/auth-api:local'
     environment:
-      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GOOGLE_CLOUD_PROJECT=${GCP_PROJECT_ID}
       - JWT_PRIVATE_KEY=-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAwPKdXgDEMjjGrt5YJFhhyjwPIqR9DMfgEpG2/gg5DbwKb65n\nmslM76iZ48NkA+vRkVM5/6MasZeDbb78fMeRRvLZO3LQ1/LTjbCnZnqPY8G+2Pse\nbU0tgzDiMLnjzRKB8plaAtKL5VZ8YO0xlQvBw3TEvusAkC+hqrcKLZc92k3EVDm7\nw2RFsJc1DvtN8y7KOCbkLBGvmrukAddJQ5sg0zVUVgA1L3aqHNa5ytk6FZ+TrKyR\nWVQzwmZVve28IkZUekmXkKSGYGAK6EOXMLeMe2tCBoZlXAQTM2X+aWMarHvkm7c0\n2G/KX5ppHVGJXVPuW9kmGjiJqsdSNVT/LtE1ywIDAQABAoIBAE3i4eFrX8eCIbm/\nKUdqofb37YgnbA83s9zrEzpSaW2A5ZmVhl72OWdY4N4PJpVqoQsP1I678W+U4Mnx\nWYypJpzENSqJO4KglANTNw/oE2/Kata979dhWyjlF7lhoHJMsUYT30DaavxlwAmE\nVgp7V3kl7rG+vVh20cTO5H3o2l//ZWb/bGCKOmxduRLVvIRTWbS9ZV4adpcHBRRH\naEKLZjCKSPjdTtwAiH6ADaI5jbdEZaCS6jhw8cEBrU4AdUNYr7zvXMZuhkv7YLVJ\nJpFhU0/c3pul4fth5DfLQ+CKUNbf+OHWnE8yrVsB9kmHbU5bVFJnWH2IGggUayod\npGX8akECgYEA/d0hKsmZLyWh/ClLa2CR92GraYvzDOOS/vekABszeZuilYBq2hA+\nQVwElLVQScK/6GREmVNybe3c//0D1VVIcPilu0RR+8ta+bAiaHSlSOtt4kFxMCTI\nwIRkFD6OQKu21X/CZbDmHXS3rZbJUIKwQx4XkqkQTtzr2xD64VNNZasCgYEAwpJC\nrRjPsc+m87PfZ4qIozA244RqpmDTd+eBF381jJs/284jpXw4agBOHPjmQLhrylEP\nxsFAnQEVlm+8ukeWdk6pY4iWMc1aBeGcUkW+jYU/KYRDSGIIkm2FE876MNJNtSVP\nGiHZE/gLBh6JyBoaduva19bCBwgMnI6a8j9pEGECgYA8ZqWikY7R6elNnuGj7bkt\nG9714Od2VJs/8NnjcJVhxMb9PS2vLpgxYtxwKWet9RlGCL1Noc4jG6ouehu0YXM3\n9eEw2kOLXkoKCH9XTRGadPGTGLD+nHHrZFSPgIbGGlUJHTm6iklmDsQ5GBxT/JRF\nk95V9cW8jdHMMJEQlYpfuwKBgQCRfWaIIq5jaj+PqWea99b2F35joEdTQ8G8vgok\ndMWo7wnQJZM4EevpL3M5bNBXgs9vCDBA0Y6sF/x5cfHwZMlYi7dTqvWMJd5z2WDX\nkDlNf15cf/8Dp/J685P33OPuD8N1eYFtq/OzX912ZO1oCETTucb5cCfDtDwh8Oxh\nyhKY4QKBgQC2bBmZWxreVW2VkrC6EnQpP9Oa6Ga5M1s2rogdvsNvJ4tABFWNg5Cv\nN+DBsyLA981QGqIz9h1GSOQjN92sJD4N3iPDhyNLk0zV54n2bu27uQaVkHSWVOu7\nfJycKmUzI3CLJuUfH/RXea+2qjHJVGb2pfx/1WR+tvS+8RpP4wFp2Q==\n-----END RSA PRIVATE KEY-----
       - DEBUG=true
     volumes:
       - .:/usr/src/app
       - ~/.config/gcloud/:/root/.config/gcloud
+    command: python run.py
     ports:
       - "8080:8080"

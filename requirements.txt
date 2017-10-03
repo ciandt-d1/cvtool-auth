@@ -1,6 +1,7 @@
-connexion == 1.1.10
+connexion == 1.1.15
 python_dateutil == 2.6.0
 setuptools >= 21.0.0
 oauth2client>=4.0.0
 google-cloud-logging
 google-api-python-client
+flask-cors
